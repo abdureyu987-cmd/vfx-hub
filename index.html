@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VFX HUB | Pro Video & Motion Assets</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Great+Vibes&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #050508;
+            --bg-surface: #0e0e14;
+            --border-color: #1a1a24;
+            --primary: #f59e0b;
+            --primary-hover: #d97706;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-deep);
+            color: var(--text-main);
+            min-height: 100vh;
+        }
+
+        .ambient-glow {
+            position: fixed;
+            top: -150px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 800px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(245, 158, 11, 0.12) 0%, transparent 70%);
+            filter: blur(100px);
+            z-index: -1;
+        }
+
+        /* Navbar & Professional Signature Circular Logo */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 60px;
+            background: rgba(14, 14, 20, 0.9);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            text-decoration: none;
+        }
+
+        .logo-circle {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #181824, #0e0e14);
+            border: 2px solid var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 15px rgba(245, 158, 11, 0.25);
+        }
+
+        .logo-signature {
+            font-family: 'Great Vibes', cursive;
+            font-size: 1.5rem;
+            color: var(--primary);
+            padding-top: 4px;
+        }
+
+        .brand-title {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: #ffffff;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .brand-title span {
+            color: var(--primary);
+            font-weight: 400;
+            font-family: 'Great Vibes', cursive;
+            text-transform: none;
+            font-size: 1.4rem;
+            margin-left: 4px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.92rem;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-main);
+        }
+
+        header {
+            text-align: center;
+            padding: 70px 20px 30px 20px;
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            letter-spacing: -0.02em;
+            color: #ffffff;
+            line-height: 1.15;
+        }
+
+        header h1 span {
+            color: var(--primary);
+        }
+
+        header p {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+        }
+
+        .search-box-wrapper {
+            max-width: 600px;
+            margin: 0 auto 50px auto;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 18px 22px 18px 50px;
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            color: white;
+            font-size: 1.02rem;
+            outline: none;
+            transition: border-color 0.2s;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .search-input:focus {
+            border-color: var(--primary);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+        }
+
+        .container {
+            max-width: 1250px;
+            margin: 0 auto;
+            padding: 0 20px 80px 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 28px;
+        }
+
+        .card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: 18px;
+            padding: 28px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.25s, border-color 0.25s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(245, 158, 11, 0.4);
+        }
+
+        .badge-category {
+            display: inline-block;
+            background: rgba(245, 158, 11, 0.1);
+            color: #fbbf24;
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-bottom: 14px;
+            text-transform: uppercase;
+        }
+
+        .card h3 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.94rem;
+            margin-bottom: 20px;
+            line-height: 1.55;
+        }
+
+        .card-footer-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid var(--border-color);
+            padding-top: 16px;
+            margin-bottom: 18px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .download-btn {
+            background: var(--primary);
+            color: #050508;
+            padding: 14px;
+            border-radius: 12px;
+            text-align: center;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 0.95rem;
+            transition: background 0.2s;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .download-btn:hover {
+            background: var(--primary-hover);
+        }
+
+        .no-results {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 50px;
+            color: var(--text-muted);
+            display: none;
+        }
+
+        footer {
+            text-align: center;
+            padding: 50px 20px;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+            font-size: 0.88rem;
+            background: var(--bg-surface);
+        }
+
+        @media (max-width: 768px) {
+            nav { padding: 15px 20px; }
+            .nav-links { display: none; }
+            header h1 { font-size: 2.3rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="ambient-glow"></div>
+
+    <!-- Navigation with Circular Signature Logo -->
+    <nav>
+        <a href="#" class="brand-logo">
+            <div class="logo-circle">
+                <span class="logo-signature">V</span>
+            </div>
+            <div class="brand-title">VFX <span>Hub</span></div>
+        </a>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Effects</a></li>
+            <li><a href="#">LUTs</a></li>
+            <li><a href="#">Presets</a></li>
+            <li><a href="#">Audio</a></li>
+        </ul>
+    </nav>
+
+    <!-- Header -->
+    <header>
+        <h1>Pro Video Effects & <span>Cinematic Assets</span></h1>
+        <p>Explore elite color grading LUTs, CapCut aesthetic filters, and professional motion design toolkits.</p>
+        
+        <div class="search-box-wrapper">
+            <span class="search-icon">🔍</span>
+            <input type="text" id="searchInput" class="search-input" placeholder="Search video effects, LUTs, presets, audio..." oninput="filterAssets()">
+        </div>
+    </header>
+
+    <!-- Cards Container (Expanded Services & Most Demanded First) -->
+    <div class="container" id="assetsGrid">
+        
+        <!-- 1 -->
+        <div class="card" data-search="ai video motion fx transitions capcut reels tiktok">
+            <div>
+                <span class="badge-category">AI Motion</span>
+                <h3>Neural AI Video Motion & FX</h3>
+                <p>Algorithmic transition sets and generative AI motion overlays for viral reels & TikTok.</p>
+                <div class="card-footer-info">
+                    <span>.JSON / .AEP</span>
+                    <span>24.1 MB</span>
+                </div>
+            </div>
+            <button class="download-btn" onclick="downloadFile('ai-motion-fx.zip', 'AI Video Motion Preset Package')">Download (.ZIP)</button>
+        </div>
+
+        <!-- 2 -->
+        <div class="card" data-search="teal orange cinematic luts premiere pro davinci color science">
+            <div>
+                <span class="badge-category">Color Science</span>
+                <h3>Teal & Orange Cinematic LUTs</h3>
+                <p>Gold-standard color grading preset pack designed for Hollywood cinematic contrast.</p>
+                <div class="card-footer-info">
+                    <span>.CUBE / .XMP</span>
+                    <span>18.4 MB</span>
+                </div>
+            </div>
+            <button class="download-btn" onclick="downloadFile('teal-orange-luts.zip', 'Cinematic LUTs Package Content')">Download (.ZIP)</button>
+        </div>
+
+        <!-- 3 -->
+        <div class="card" data-search="dark moody aesthetic filters capcut mobile reels tiktok">
+            <div>
+                <span class="badge-category">CapCut & Mobile</span>
+                <h3>Dark Moody Aesthetic Filters</h3>
+                <p>Deep shadow tones and dramatic lighting presets engineered for mobile creators.</p>
+                <div class="card-footer-info">
+                    <span>.DNG / .JSON</span>
+                    <span>9.2 MB</span>
+                </div>
+            </div>
+            <button class="download-btn" onclick="downloadFile('dark-moody-filters.zip', 'Dark Moody Filters Content')">Download (.ZIP)</button>
+        </div>
+
+        <!-- 4 -->
+        <div class="card" data-search="cyberpunk neon color grading final cut pro urban sci-fi">
+            <div>
+                <span class="badge-category">Cyberpunk Suite</span>
+                <h3>Cyberpunk Neon Glow Presets</h3>
+                <p>Futuristic neon color grading suite optimized for urban night videography and sci-fi edits.</p>
+                <div class="card-footer-info">
+                    <span>.FCPX / .CUBE</span>
+                    <span>14.1 MB</span>
+                </div>
+            </div>
+            <button class="download-btn" onclick="downloadFile('cyberpunk-neon-presets.zip', 'Cyberpunk Presets Content')">Download (.ZIP)</button>
+        </div>
+
+        <!-- 5 -->
+        <div class="card" data-search="documentary film warm tones color grading interview vlog">
+            <div>
+                <span class="badge-category">Documentary Grade</span>
+                <h3>Organic Warm Film Tones</h3>
+                <p>Natural skin-tone focused color profiles for storytelling, interviews, and travel vlogs.</p>
+                <div class="card-footer-info">
+                    <span>.CUBE / .MOV</span>
+                    <span>12.8 MB</span>
+                </div>
+            </div>
+            <button class="download-btn" onclick="downloadFile('organic-warm-film.zip', 'Warm Film Tones Package')">Download (.ZIP)</button>
+        </div>
+
+        <!-- 6 -->
+        <div class="card" data-search="neural audio mastering cinematic sound effects bass audio engineering">
+            <div>
+                <span class="badge-category">Audio Engineering</span>
+                <h3>Neural Cinematic Sound FX</h3>
+                <p>Studio-grade atmospheric soundscapes, bass drops, and mastering rack presets.</p>
+                <div class="card-footer-info">
+                    <span>.WAV / .RACK</span>
+                    <span>45.2 MB</span>
+                </div>
+            </div>
+            <button class="download-btn" onclick="downloadFile('cinematic-sound-fx.zip', 'Audio FX Package Content')">Download (.ZIP)</button>
+        </div>
+
+        <!-- 7 -->
+        <div class="card" data-search="glitch vhs retro 90s overlay video effects premiere pro">
+            <div>
+                <span class="badge-category">Retro FX</span>
+                <h3>Retro VHS & Glitch Overlays</h3>
+                <p>Authentic 90s vintage VHS tracking errors, scanlines, and digital glitch transitions.</p>
+                <div class="card-footer-info">
+                    <span>.MP4 / .MOV</span>
+                    <span>32.5 MB</span>
+                </div>
+            </div>
+            <button class="download-btn" onclick="downloadFile('vhs-glitch-overlays.zip', 'VHS Glitch Package')">Download (.ZIP)</button>
+        </div>
+
+        <!-- 8 -->
+        <div class="card" data-search="slow motion smooth twixtor preset premiere pro after effects">
+            <div>
+                <span class="badge-category">Speed Ramping</span>
+                <h3>Ultra Smooth Slow-Mo Presets</h3>
+                <p>Professional speed ramping and optical flow preset configurations for cinematic motion.</p>
+                <div class="card-footer-info">
+                    <span>.PRFPSET</span>
+                    <span>6.4 MB</span>
+                </div>
+            </div>
+            <button class="download-btn" onclick="downloadFile('smooth-slow-mo.zip', 'Slow Motion Pack')">Download (.ZIP)</button>
+        </div>
+
+        <!-- 9 -->
+        <div class="card" data-search="anamorphic light leaks cinematic lens flares overlay">
+            <div>
+                <span class="badge-category">Lens Optics</span>
+                <h3>Anamorphic Light Leaks & Flares</h3>
+                <p>Real organic optical lens flares and chromatic aberration overlays for premium depth.</p>
+                <div class="card-footer-info">
+                    <span>4K .MOV</span>
+                    <span>58.0 MB</span>
+                </div>
+            </div>
+            <button class="download-btn" onclick="downloadFile('light-leaks-flares.zip', 'Light Leaks Package')">Download (.ZIP)</button>
+        </div>
+
+    </div>
+
+    <div id="noResults" class="no-results">
+        <p>No video assets found matching your search.</p>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 VFX HUB. All rights reserved. Built for professional video creators.</p>
+    </footer>
+
+    <script>
+        // High-Performance Instant Search Filter
+        function filterAssets() {
+            const query = document.getElementById('searchInput').value.toLowerCase().trim();
+            const cards = document.querySelectorAll('.card');
+            const noResults = document.getElementById('noResults');
+            let visibleCount = 0;
+
+            cards.forEach(card => {
+                const searchData = card.getAttribute('data-search') || '';
+                const cardText = card.innerText.toLowerCase();
+                
+                if (searchData.includes(query) || cardText.includes(query)) {
+                    card.style.display = "flex";
+                    visibleCount++;
+                } else {
+                    card.style.display = "none";
+                }
+            });
+
+            if (visibleCount === 0) {
+                noResults.style.display = "block";
+            } else {
+                noResults.style.display = "none";
+            }
+        }
+
+        // Direct Download Trigger
+        function downloadFile(filename, content) {
+            const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+        }
+    </script>
+</body>
+</html>
