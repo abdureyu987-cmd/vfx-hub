@@ -321,7 +321,7 @@
                     <span>24.1 MB</span>
                 </div>
             </div>
-            <button class="download-btn" onclick="downloadAsset('AI_Video_Motion_Preset_Package.txt', 'VFX HUB - AI Video Motion FX Package\\nContains: .JSON / .AEP professional presets.')">Download (.ZIP)</button>
+            <button class="download-btn" onclick="triggerDownload('ai-motion-fx.zip')">Download (.ZIP)</button>
         </div>
 
         <div class="card" data-search="teal orange cinematic luts premiere pro davinci color science">
@@ -334,7 +334,7 @@
                     <span>18.4 MB</span>
                 </div>
             </div>
-            <button class="download-btn" onclick="downloadAsset('Teal_Orange_Cinematic_LUTs.txt', 'VFX HUB - Teal & Orange Cinematic LUTs\\nContains: .CUBE / .XMP color grades.')">Download (.ZIP)</button>
+            <button class="download-btn" onclick="triggerDownload('teal-orange-luts.zip')">Download (.ZIP)</button>
         </div>
 
         <div class="card" data-search="dark moody aesthetic filters capcut mobile reels tiktok">
@@ -347,7 +347,7 @@
                     <span>9.2 MB</span>
                 </div>
             </div>
-            <button class="download-btn" onclick="downloadAsset('Dark_Moody_Aesthetic_Filters.txt', 'VFX HUB - Dark Moody Filters\\nContains: .DNG / .JSON mobile aesthetic presets.')">Download (.ZIP)</button>
+            <button class="download-btn" onclick="triggerDownload('dark-moody-filters.zip')">Download (.ZIP)</button>
         </div>
 
         <div class="card" data-search="cyberpunk neon color grading final cut pro urban sci-fi">
@@ -360,7 +360,7 @@
                     <span>14.1 MB</span>
                 </div>
             </div>
-            <button class="download-btn" onclick="downloadAsset('Cyberpunk_Neon_Presets.txt', 'VFX HUB - Cyberpunk Neon Presets\\nContains: .FCPX / .CUBE urban grading files.')">Download (.ZIP)</button>
+            <button class="download-btn" onclick="triggerDownload('cyberpunk-neon-presets.zip')">Download (.ZIP)</button>
         </div>
 
         <div class="card" data-search="documentary film warm tones color grading interview vlog">
@@ -373,7 +373,7 @@
                     <span>12.8 MB</span>
                 </div>
             </div>
-            <button class="download-btn" onclick="downloadAsset('Organic_Warm_Film_Tones.txt', 'VFX HUB - Warm Film Tones\\nContains: .CUBE / .MOV natural profile assets.')">Download (.ZIP)</button>
+            <button class="download-btn" onclick="triggerDownload('organic-warm-film.zip')">Download (.ZIP)</button>
         </div>
 
         <div class="card" data-search="neural audio mastering cinematic sound effects bass audio engineering">
@@ -386,7 +386,7 @@
                     <span>45.2 MB</span>
                 </div>
             </div>
-            <button class="download-btn" onclick="downloadAsset('Neural_Cinematic_Sound_FX.txt', 'VFX HUB - Cinematic Sound FX\\nContains: .WAV / .RACK audio package.')">Download (.ZIP)</button>
+            <button class="download-btn" onclick="triggerDownload('cinematic-sound-fx.zip')">Download (.ZIP)</button>
         </div>
 
         <div class="card" data-search="glitch vhs retro 90s overlay video effects premiere pro">
@@ -399,7 +399,7 @@
                     <span>32.5 MB</span>
                 </div>
             </div>
-            <button class="download-btn" onclick="downloadAsset('Retro_VHS_Glitch_Overlays.txt', 'VFX HUB - VHS Glitch Overlays\\nContains: .MP4 / .MOV retro elements.')">Download (.ZIP)</button>
+            <button class="download-btn" onclick="triggerDownload('vhs-glitch-overlays.zip')">Download (.ZIP)</button>
         </div>
 
         <div class="card" data-search="slow motion smooth twixtor preset premiere pro after effects">
@@ -412,7 +412,7 @@
                     <span>6.4 MB</span>
                 </div>
             </div>
-            <button class="download-btn" onclick="downloadAsset('Ultra_Smooth_SlowMo_Presets.txt', 'VFX HUB - Smooth Slow-Mo Presets\\nContains: .PRFPSET speed config.')">Download (.ZIP)</button>
+            <button class="download-btn" onclick="triggerDownload('smooth-slow-mo.zip')">Download (.ZIP)</button>
         </div>
 
         <div class="card" data-search="anamorphic light leaks cinematic lens flares overlay">
@@ -425,7 +425,7 @@
                     <span>58.0 MB</span>
                 </div>
             </div>
-            <button class="download-btn" onclick="downloadAsset('Anamorphic_Light_Leaks.txt', 'VFX HUB - Anamorphic Light Leaks\\nContains: 4K .MOV optical overlays.')">Download (.ZIP)</button>
+            <button class="download-btn" onclick="triggerDownload('light-leaks-flares.zip')">Download (.ZIP)</button>
         </div>
 
     </div>
@@ -464,8 +464,10 @@
             }
         }
 
-        function downloadAsset(filename, textContent) {
-            const blob = new Blob([textContent], { type: 'application/octet-stream' });
+        function triggerDownload(filename) {
+            // Generates a mock binary-like zip package blob so mobile file managers recognize it instantly
+            const buffer = new Uint8Array([80, 75, 3, 4, 20, 0, 0, 0, 0, 0, 164, 107, 104, 85, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 118, 102, 120, 45, 104, 117, 98]);
+            const blob = new Blob([buffer], { type: 'application/zip' });
             const url = window.URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
